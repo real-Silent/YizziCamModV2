@@ -65,7 +65,7 @@ namespace YizziCamModV2.Comps
                     }
                     if (freecam)
                     {
-                        CameraController.Instance.CameraTablet.transform.position = Player.Instance.headCollider.transform.position + Player.Instance.headCollider.transform.forward;
+                        CameraController.Instance.CameraTablet.transform.position = GTPlayer.Instance.headCollider.transform.position + GTPlayer.Instance.headCollider.transform.forward;
                     }
                     if (!CameraController.Instance.flipped)
                     {
@@ -97,7 +97,7 @@ namespace YizziCamModV2.Comps
                     if (spectating)
                     {
                         followobject = null;
-                        CameraController.Instance.CameraTablet.transform.position = Player.Instance.headCollider.transform.position + Player.Instance.headCollider.transform.forward;
+                        CameraController.Instance.CameraTablet.transform.position = GTPlayer.Instance.headCollider.transform.position + GTPlayer.Instance.headCollider.transform.forward;
                         spectating = false;
                     }
                 }
@@ -125,7 +125,7 @@ namespace YizziCamModV2.Comps
                     {
                         if (player.transform.parent.gameObject.active)
                         {
-                            GUI.Label(new Rect(250, 20 + (i * 25), 160, 20), player.playerText.text);
+                            GUI.Label(new Rect(250, 20 + (i * 25), 160, 20), player.OwningNetPlayer.NickName); // Chnaged This so Hopefully works idk
                             if (GUI.Button(new Rect(360, 20 + (i * 25), 67, 20), "Spectate"))
                             {
                                 followobject = player.gameObject;
@@ -330,7 +330,7 @@ namespace YizziCamModV2.Comps
             {
                 if (spectating)
                 {
-                    CameraController.Instance.CameraTablet.transform.position = Player.Instance.headCollider.transform.position + Player.Instance.headCollider.transform.forward;
+                    CameraController.Instance.CameraTablet.transform.position = GTPlayer.Instance.headCollider.transform.position + GTPlayer.Instance.headCollider.transform.forward;
                     spectating = false;
                 }
             }
